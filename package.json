@@ -5,10 +5,14 @@
 	"version": "0.0.1",
 	"publisher": "101rakibulhasan",
 	"icon": "images/icon.png",
-	"license": "SEE LICENSE IN LICENSE.txt",
+	"license": "./LICENSE",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/microsoft/vscode-wordcount.git"
+		"url": "https://github.com/101rakibulhasan/coderush-snippets.git"
+	  },
+	  "bugs": {
+		"url": "https://github.com/101rakibulhasan/coderush-snippets/issues",
+		"email": "101rakibulhasan@gmail.com"
 	  },
 	"engines": {
 		"vscode": "^1.28.0"
@@ -23,5 +27,6 @@
 				"path": "./cpp_snippets.json"
 			}
 		]
-	}
+	},
+	"homepage": "https://github.com/101rakibulhasan/coderush-snippets"
 }
