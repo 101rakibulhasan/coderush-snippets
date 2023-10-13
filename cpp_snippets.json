@@ -69,7 +69,7 @@
 	"While-TestCase with Special Value": {
 		"prefix": "twsv",
 		"body": [
-		  "int a,b;",
+		  "ll a,b;",
 		  "while (scanf(\"%lld %lld\", &a, &b), (a||b))",
 		  "{",
 		  "    $1;",
@@ -81,7 +81,7 @@
 	"While-TestCase with EOF": {
 		"prefix": "tweof",
 		"body": [
-		  "int a,b;",
+		  "ll a,b;",
 		  "while (scanf(\"%lld %lld\", &a, &b) != EOF)",
 		  "{",
 		  "    $1;",
@@ -121,13 +121,13 @@
 	"Initialize Function For Printing 1D Array": {
 		"prefix": "prnt_arr_func",
 		"body": [
-		  "void printArray(ll arr[], ll n$1){",
+		  "void printArray(ll arr[], ll n){",
 		  "    for(ll i=0; i < n; ++i)",
 		  "    {",
-		  "        cout << arr[i] << \" \";$2",
+		  "        cout << arr[i] << \" \";$1",
 		  "    }",
 		  "",
-		  "    cout << endl;$3",
+		  "    cout << endl;$2",
 		  "}"
 		],
 		"description": "Initialize Function For Printing 1D Array"
@@ -140,14 +140,14 @@
 		],
 		"description": "Print Array"
 	  },
-	"Initialize Array[size] With Get": {
+	"Initialize Array[size] With Input": {
 		"prefix": "arr",
 		"body": [
-		  "ll ${1:arr_length}; cin >> ${2:arr_length};",
-		  "ll arr[${3:arr_length}];",
-		  "for(ll i = ${4:0}; i < ${5:arr_length}; i++) cin >> arr[i];"
+		  "ll ${1:arr_length}; cin >> ${1:arr_length};",
+		  "ll ${2:arr}[${1:arr_length}];",
+		  "for(ll i = ${3:0}; i < ${1:arr_length}; i++) cin >> arr[i];"
 		],
-		"description": "Initialize Array[size] With Get"
+		"description": "Initialize Array[size] With Input"
 	  },
 	  "(vec,ll) Returns Index using Binary Search Function": {
 		"prefix": "bs_func",
@@ -287,7 +287,7 @@
 		],
 		"description": "DFS Function"
 	  },
-	  "Generate DFS": {
+	  "Initialize DFS": {
 		"prefix": "dfs",
 		"body": [
 		  "// requires dfs_func",
@@ -302,7 +302,7 @@
 		  "dfs(${1:rootNode});",
 		  "// DFS has been generated in dfs_nodes vector"
 		],
-		"description": "Generate DFS"
+		"description": "Initialize DFS"
 	  },
 	  "BFS Function (bfs_nodes)": {
 		"prefix": "bfs_func",
@@ -451,7 +451,7 @@
 		],
 		"description": "Do Power (base^powervar)"
 	  },
-	  "(string) Convert Number to String": {
+	  "(string) Convert Number to String Function": {
 		"prefix": "conv_numtostr_func",
 		"body": [
 		  "string numtostr(ll num)",
@@ -479,7 +479,7 @@
 		],
 		"description": "(ll) Convert String to Number"
 	  },
-	  "(string) Convert Number to String Function": {
+	  "(string) Convert Number to String": {
 		"prefix": "conv_numtostr",
 		"body": [
 		  "// requires conv_numtostr_func",
