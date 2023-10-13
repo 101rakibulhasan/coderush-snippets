@@ -1,0 +1,519 @@
+{
+	"Initialize C++ Main()": {
+		"prefix": "init",
+		"body": [
+		  "#include <iostream>",
+		  "using namespace std;",
+		  "",
+		  "using ll = long long;",
+		  "int main()",
+		  "{",
+		  "    $1",
+		  "    return 0;",
+		  "}"
+		],
+		"description": "Initialize C++ Main()"
+	  },
+	  "CP-Initialize C++ Main()": {
+		"prefix": "init-cp",
+		"body": [
+		  "#include <bits/stdc++.h>",
+		  "using namespace std;",
+		  "using ll = long long;",
+		  "using ld = long double;",
+		  "",
+		  "#define endl \"\\n\"",
+		  "#define all(x) (x).begin(), (x).end()",
+		  "",
+		  "const ld pi = acos(-1);",
+		  "const ll MOD = 1000000007;",
+		  "const ll N = 1e5+7;",
+		  "",
+		  "signed main()",
+		  "{",
+		  "    ios::sync_with_stdio(false);",
+		  "    cout.tie(nullptr);",
+		  "",
+		  "    $1",
+		  "",
+		  "    return 0;",
+		  "}"
+		],
+		"description": "CP-Initialize C++ Main()"
+	  },
+	"While-TestCase": {
+		"prefix": "tw",
+		"body": [
+		  "ll tc; cin >> tc;",
+		  "while(tc--)",
+		  "{",
+		  "    $1",
+		  "    cout << endl;",
+		  "}"
+		],
+		"description": "While-TestCase"
+	  },
+	"For-TestCase": {
+		"prefix": "tf",
+		"body": [
+		  "ll n; cin >> n;",
+		  "for(ll tc = 1; tc <=n; tc++)",
+		  "{",
+		  "    // printf(\"Case %d:\", tc);",
+		  "    $1",
+		  "    cout << endl;",
+		  "}"
+		],
+		"description": "For-TestCase"
+	  },
+	"While-TestCase with Special Value": {
+		"prefix": "twsv",
+		"body": [
+		  "int a,b;",
+		  "while (scanf(\"%lld %lld\", &a, &b), (a||b))",
+		  "{",
+		  "    $1;",
+		  "    cout << endl;",
+		  "}"
+		],
+		"description": "While-TestCase with Special Value"
+	  },
+	"While-TestCase with EOF": {
+		"prefix": "tweof",
+		"body": [
+		  "int a,b;",
+		  "while (scanf(\"%lld %lld\", &a, &b) != EOF)",
+		  "{",
+		  "    $1;",
+		  "    cout << endl;",
+		  "}"
+		],
+		"description": "While-TestCase with EOF"
+	  },
+	"Initialize Vector": {
+		"prefix": "vec",
+		"body": [
+		  "vector<${1:ll}> ${2:vec} = {$3};"
+		],
+		"description": "Initialize Vector"
+	  },
+	"Convert Int To Binary": {
+		"prefix": "conv_inttobits",
+		"body": [
+		  "bitset <${1:8}> ${2:b_int}($3);"
+		],
+		"description": "Convert Int To Binary"
+	  },
+	"Print COUT": {
+		"prefix": "print",
+		"body": [
+		  "cout << $1 << endl;"
+		],
+		"description": "Print COUT"
+	  },
+	"Get CIN": {
+		"prefix": "scan",
+		"body": [
+		  "cin >> $1 ;"
+		],
+		"description": "Get CIN"
+	  },
+	"Initialize Function For Printing 1D Array": {
+		"prefix": "prnt_arr_func",
+		"body": [
+		  "void printArray(ll arr[], ll n$1){",
+		  "    for(ll i=0; i < n; ++i)",
+		  "    {",
+		  "        cout << arr[i] << \" \";$2",
+		  "    }",
+		  "",
+		  "    cout << endl;$3",
+		  "}"
+		],
+		"description": "Initialize Function For Printing 1D Array"
+	  },
+	"Print Array": {
+		"prefix": "prnt_arr",
+		"body": [
+		  "// initialize printArr function first using prnt_arr_func",
+		  "printArray(${1:arr[]}, ${2:n});"
+		],
+		"description": "Print Array"
+	  },
+	"Initialize Array[size] With Get": {
+		"prefix": "arr",
+		"body": [
+		  "ll ${1:arr_length}; cin >> ${2:arr_length};",
+		  "ll arr[${3:arr_length}];",
+		  "for(ll i = ${4:0}; i < ${5:arr_length}; i++) cin >> arr[i];"
+		],
+		"description": "Initialize Array[size] With Get"
+	  },
+	  "(vec,ll) Returns Index using Binary Search Function": {
+		"prefix": "bs_func",
+		"body": [
+		  "ll binary_search(vector<ll> ar, ll x)",
+		  "{",
+		  "    ll n = ar.size();",
+		  "    ll l =0;",
+		  "    ll r= n-1;",
+		  "    while(l<=r)",
+		  "    {",
+		  "        ll mid=(l+r)/2;",
+		  "        if(ar[mid] == x)",
+		  "        {",
+		  "            return mid;",
+		  "        }else if(ar[mid]>x)",
+		  "        {",
+		  "            r = mid - 1;",
+		  "        }else",
+		  "        {",
+		  "            l = mid + 1;",
+		  "        }",
+		  "    }",
+		  "    return -1;",
+		  "}"
+		],
+		"description": "(vec) Returns Index using Binary Search Function"
+	  },
+	  "(vec,ll) Returns Index using Binary Search": {
+		"prefix": "bs",
+		"body": [
+		  "// requires bs_func",
+		  "ll bs_ind =  binary_search(${1:vec},${2:number});"
+		],
+		"description": "Returns Index using Binary Search"
+	  },
+	  "(ll) Returns 1 or 0 if Prime or Not": {
+		"prefix": "prime_func",
+		"body": [
+		  "ll isPrimeNumber(ll x)",
+		  "{",
+		  "    if(x<2) return 0;",
+		  "    if(x == 2 || x == 3) return 1;",
+		  "    if(x % 2 == 0) return 0;",
+		  "",
+		  "    for(int i = 3; i*i <= x; i+=2){",
+		  "        if(x % i == 0) return 0;",
+		  "    }",
+		  "    ",
+		  "    return 1;",
+		  "}"
+		],
+		"description": "(ll) Returns 1 or 0 if Prime or Not"
+	  },
+	  "Initialize Prime Checker Variable": {
+		"prefix": "prime",
+		"body": [
+		  "// requires prime_func",
+		  "ll ispn = isPrimeNumber(${1:number});"
+		],
+		"description": "Initialize Prime Checker Variable"
+	  },
+	  "Generate Prime Numbers Till N": {
+		"prefix": "gen_prime_func",
+		"body": [
+		  "vector<ll> sieve_of_eratosthenes(ll n)",
+		  "{",
+		  "    vector<ll> primes;",
+		  "    ll arr[n+1] = {0};",
+		  "    arr[1] = 1;",
+		  "    for(ll i = 2; i*i <= n; i++)",
+		  "    {",
+		  "        if(arr[i] == 0)",
+		  "        {",
+		  "            for(ll j = i*i; j <=n; j+= i)",
+		  "            {",
+		  "                arr[j] = 1;",
+		  "            }",
+		  "        }",
+		  "    }",
+		  "",
+		  "    for(ll i = 2; i <= n; i++)",
+		  "    {",
+		  "        if(arr[i] == 0)",
+		  "        {",
+		  "            primes.push_back(i);",
+		  "        }",
+		  "    }",
+		  "",
+		  "    return primes;",
+		  "}",
+		  ""
+		],
+		"description": "Generate Prime Numbers Till N"
+	  },
+	  "(vector) Initialize Prime Numbers Generator": {
+		"prefix": "gen_prime",
+		"body": [
+		  "// requires gen_prime",
+		  "vector<ll> vec = sieve_of_eratosthenes(${1:number});"
+		],
+		"description": "(vector) Initialize Prime Numbers Generator"
+	  },
+
+	  "Print Vector": {
+		"prefix": "prnt_vec",
+		"body": [
+		  "for(ll unsigned i = 0;i < ${1:vec.size()}; i++)",
+		  "{",
+		  "    cout << vec[i] << \" \";",
+		  "}",
+		  "cout << endl;"
+		],
+		"description": "Print Vector"
+	  },
+	  "DFS Function": {
+		"prefix": "dfs_func",
+		"body": [
+		  "vector<ll> nodeswithedges[N];",
+		  "vector<ll> dfs_nodes;",
+		  "ll visited[N] ={0};",
+		  "void dfs(int rootNode)",
+		  "{",
+		  "    //preorder",
+		  "    visited[rootNode] = 1;",
+		  "    dfs_nodes.push_back(rootNode);",
+		  "    //inorder",
+		  "    for(int i = 0; i < nodeswithedges[rootNode].size(); i++)",
+		  "    {",
+		  "        if(visited[nodeswithedges[rootNode][i]] == 0)",
+		  "        {",
+		  "            dfs(nodeswithedges[rootNode][i]);",
+		  "        }",
+		  "    }",
+		  "    //postorder",
+		  "}"
+		],
+		"description": "DFS Function"
+	  },
+	  "Generate DFS": {
+		"prefix": "dfs",
+		"body": [
+		  "// requires dfs_func",
+		  "int totalNodes, rootNode; cin >> totalNodes >> rootNode;",
+		  "int l = totalNodes;",
+		  "while(l--)",
+		  "{",
+		  "    int first_node,last_node; cin >> first_node >> last_node;",
+		  "    nodeswithedges[first_node].push_back(last_node);",
+		  "    nodeswithedges[last_node].push_back(first_node);",
+		  "}",
+		  "dfs(${1:rootNode});",
+		  "// DFS has been generated in dfs_nodes vector"
+		],
+		"description": "Generate DFS"
+	  },
+	  "BFS Function (bfs_nodes)": {
+		"prefix": "bfs_func",
+		"body": [
+		  "int visited[N];",
+		  "int level[N];",
+		  "vector<int>adj_list[N];",
+		  "vector<int>bfs_nodes[N];",
+		  "void bfs(int src) {",
+		  "    queue<int>q;",
+		  "    visited[src] = 1;",
+		  "    level[src] = 0; // new line added",
+		  "    q.push(src);",
+		  "",
+		  "    while(!q.empty()) {",
+		  "        int head = q.front();",
+		  "        bfs_nodes->push_back(head);",
+		  "        q.pop();",
+		  "",
+		  "        for(int adj_node: adj_list[head]) {",
+		  "            if(visited[adj_node] == 0) {",
+		  "                visited[adj_node] = 1;",
+		  "",
+		  "                level[adj_node] = level[head] + 1; // new line added",
+		  "",
+		  "                q.push(adj_node);",
+		  "            }",
+		  "        }",
+		  "    }",
+		  "}"
+		],
+		"description": "BFS Function (bfs_nodes)"
+	  },
+	  "(root,edge) BFS Initialize (bfs_nodes)": {
+		"prefix": "bfs",
+		"body": [
+		  "int root, edges;",
+		  "    cin >> root >> edges;",
+		  "",
+		  "    for(int i = 0 ; i < edges ; i++) {",
+		  "        int u, v;",
+		  "        cin >> u >> v;",
+		  "        adj_list[u].push_back(v);",
+		  "        adj_list[v].push_back(u);",
+		  "    }",
+		  "",
+		  "    bfs(root);"
+		],
+		"description": "(root,edge) BFS Initialize (bfs_nodes)"
+	  },
+	  "GCD Function": {
+		"prefix": "gcd_func",
+		"body": [
+		  "ll gcd(ll a, ll b)",
+		  "{",
+		  "    if(b==0) return a;",
+		  "    return gcd(b, a%b);",
+		  "}"
+		],
+		"description": "GCD Function"
+	  },
+	  "(ll) Returns GCD": {
+		"prefix": "gcd",
+		"body": [
+			"// requires gcd_func",
+		  "gcd(${1:a},${2:b})"
+		],
+		"description": "(ll) returns GCD"
+	  },
+	  "(ll) LCM Function": {
+		"prefix": "lcm_func",
+		"body": [
+		  "ll lcm(int a, int b)",
+		  "{",
+		  "    return (a*b)/__gcd(a,b);",
+		  "}"
+		],
+		"description": "(ll) LCM Function"
+	  },
+	  "(ll) Returns the LCM Number": {
+		"prefix": "lcm",
+		"body": [
+		  "// requires lcm_func",
+		  "lcm(${1:a},${2:b})"
+		],
+		"description": "(ll) Returns the LCM Number"
+	  },
+	  "(vector) Generates Prime Factors": {
+		"prefix": "gen_prime_factors_func",
+		"body": [
+		  "vector<ll> prime_factors(ll n)",
+		  "{",
+		  "    vector<ll> tmp;",
+		  "    for(int i=2; i*i <= n; i++)",
+		  "    {",
+		  "        while(n%i == 0)",
+		  "        {",
+		  "            n/=i;",
+		  "            tmp.emplace_back(i);",
+		  "        }",
+		  "    }",
+		  "",
+		  "    if(n>1) tmp.emplace_back(n);",
+		  "",
+		  "    return tmp;",
+		  "}"
+		],
+		"description": "(vector) Generates Prime Factors"
+	  },
+	  "(vector) Initialize Prime Factors": {
+		"prefix": "gen_prime_factors",
+		"body": [
+		  "// requires gen_prime_factors_func",
+		  "vector<ll> vec = prime_factors(${1:number});"
+		],
+		"description": "(vector) Initialize Prime Factors"
+	  },
+	  "(base^upper) Power Function": {
+		"prefix": "power_func",
+		"body": [
+		  "ll power(ll base, ll upper) // , ll mod",
+		  "{",
+		  "    ll result = 1;",
+		  "    while(upper)",
+		  "    {",
+		  "        if(upper % 2 == 1)",
+		  "        {",
+		  "            result = (result * base); // %mod",
+		  "            upper--;",
+		  "        }else",
+		  "        {",
+		  "            base = (base * base); // %mod",
+		  "            upper/=2;",
+		  "        }",
+		  "    }",
+		  "    return result;",
+		  "}"
+		],
+		"description": "(base^upper) Power Function"
+	  },
+	  "Do Power (base^powervar)": {
+		"prefix": "power",
+		"body": [
+		  "// requires power_func",
+		  "power(${1:base},${2:powervar})"
+		],
+		"description": "Do Power (base^powervar)"
+	  },
+	  "(string) Convert Number to String": {
+		"prefix": "conv_numtostr_func",
+		"body": [
+		  "string numtostr(ll num)",
+		  "{",
+		  "    return to_string(num);",
+		  "}"
+		],
+		"description": "(string) Convert Number to String"
+	  },
+	  "(ll) Convert String to Number Function": {
+		"prefix": "conv_strtonum_func",
+		"body": [
+		  "ll strtonum(string s)",
+		  "{",
+		  "    return stoi(s);",
+		  "}"
+		],
+		"description": "(ll) Convert String to Number Function"
+	  },
+	  "(ll) Convert String to Number": {
+		"prefix": "conv_strtonum",
+		"body": [
+			"// requires conv_strtonum_func",
+		  "ll ${1:x} = strtonum(${2:str});"
+		],
+		"description": "(ll) Convert String to Number"
+	  },
+	  "(string) Convert Number to String Function": {
+		"prefix": "conv_numtostr",
+		"body": [
+		  "// requires conv_numtostr_func",
+		  "string ${1:x} = numtostr(${2:number});"
+		],
+		"description": "(string) Convert Number to String Function"
+	  },
+	  "Initialize 2D Array": {
+		"prefix": "arr_2d",
+		"body": [
+		  "ll ${1:arr_length}; cin >> ${1:arr_length};",
+		  "ll ${2:arr}[${1:arr_length}][${1:arr_length}];",
+		  "for(ll i = 0; i < ${1:arr_length}; i++)",
+		  "{",
+		  "    for (ll j = 0; j < ${1:arr_length}; j++)",
+		  "    {",
+		  "        cin >> ${2:arr}[i][j];",
+		  "    }   ",
+		  "}"
+		],
+		"description": "Initialize 2D Array"
+	  },
+	  "Print 2D Array": {
+		"prefix": "prnt_arr_2d",
+		"body": [
+		  "for(ll i = 0; i < ${1:arr_length}; i++)",
+		  "{",
+		  "    for (ll j = 0; j < ${1:arr_length}; j++)",
+		  "    {",
+		  "        cout << ${2:arr}[i][j] << \" \";",
+		  "    }   ",
+		  "    cout << endl;",
+		  "}"
+		],
+		"description": "Print 2D Array"
+	  }
+}

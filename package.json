@@ -1,0 +1,27 @@
+{
+	"name": "coderush",
+	"displayName": "CodeRush Snippets",
+	"description": "Speedrun Competitive Programming Contests with CodeRush Snippets",
+	"version": "0.0.1",
+	"publisher": "101rakibulhasan",
+	"icon": "images/icon.png",
+	"license": "SEE LICENSE IN LICENSE.txt",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/microsoft/vscode-wordcount.git"
+	  },
+	"engines": {
+		"vscode": "^1.28.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "cpp",
+				"path": "./cpp_snippets.json"
+			}
+		]
+	}
+}
