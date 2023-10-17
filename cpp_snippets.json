@@ -90,12 +90,19 @@
 		],
 		"description": "While-TestCase with EOF"
 	  },
-	"Initialize Vector": {
+	  "Initialize Vector with Size": {
+		"prefix": "vec_n",
+		"body": [
+		  "vector<${1:ll}> ${2:vec}(${3:n});"
+		],
+		"description": "Initialize Vector with Size"
+	  },
+	"Initialize Vector with Values": {
 		"prefix": "vec",
 		"body": [
 		  "vector<${1:ll}> ${2:vec} = {$3};"
 		],
-		"description": "Initialize Vector"
+		"description": "Initialize Vector with Values"
 	  },
 	"Convert Int To Binary": {
 		"prefix": "conv_inttobits",
@@ -159,7 +166,7 @@
 		  "    ll r= n-1;",
 		  "    while(l<=r)",
 		  "    {",
-		  "        ll mid=(l+r)/2;",
+		  "        ll mid=l + (r-l)/2;",
 		  "        if(ar[mid] == x)",
 		  "        {",
 		  "            return mid;",
