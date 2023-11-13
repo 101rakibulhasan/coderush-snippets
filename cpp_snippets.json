@@ -522,5 +522,45 @@
 		  "}"
 		],
 		"description": "Print 2D Array"
+	  },
+	  "Longest Common Subsequence Length Function": {
+		"prefix": "lcs_func",
+		"body": [
+		  "ll lcs(string s1, string s2)",
+		  "{",
+		  "    ll str1_size = s1.size();",
+		  "    ll str2_size = s2.size();",
+		  "    cout << str1_size << \" \" << str2_size << endl;",
+		  "",
+		  "    ll arr[str1_size+1][str2_size+1];",
+		  "    memset(arr, 0, sizeof(arr));",
+		  "",
+		  "    for(ll i = 1; i <= str1_size; i++)",
+		  "    {",
+		  "        for(ll j = 1; j <= str2_size; j++)",
+		  "        {",
+		  "            if(s1[i-1] == s2[j-1])",
+		  "            {",
+		  "                arr[i][j] = arr[i-1][j-1] + 1;",
+		  "            }else",
+		  "            {",
+		  "                arr[i][j] = max(arr[i-1][j], arr[i][j-1]);",
+		  "            }",
+		  "        }",
+		  "    }",
+		  "",
+		  "    return arr[str1_size-1][str2_size-1];",
+		  "}"
+		],
+		"description": "Longest Common Subsequence Length Function"
+	  },
+	  "Longest Common Subsequence Length Between two strings": {
+		"prefix": "lcs",
+		"body": [
+		  "// requires lcs_func",
+		  "lcs(${1:s1}, ${2:s2})"
+		],
+		"description": "Longest Common Subsequence Length Between two strings"
 	  }
+
 }
