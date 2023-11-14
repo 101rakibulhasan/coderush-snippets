@@ -36,10 +36,12 @@ Github: https://github.com/101rakibulhasan/coderush-snippets
 29. gen_prime_factors_func -> (vector) Generates Prime Factors
 30. gen_prime_factors -> (vector) Initialize Prime Factors
 31. power_func -> (base^upper) Power Function
-power -> Do Power (base^powervar)
-32. conv_numtostr_func -> (string) Convert Number to String Function
-33. conv_strtonum_func -> (ll) Convert String to Number Function
-34. conv_strtonum -> (ll) Convert String to Number
-35. conv_numtostr -> (string) Convert Number to String
-36. arr_2d -> Initialize 2D Array
-37. prnt_arr_2d -> Print 2D Array
+32. power -> Do Power (base^powervar)
+33. conv_numtostr_func -> (string) Convert Number to String Function
+34. conv_strtonum_func -> (ll) Convert String to Number Function
+35. conv_strtonum -> (ll) Convert String to Number
+36. conv_numtostr -> (string) Convert Number to String
+37. arr_2d -> Initialize 2D Array
+38. prnt_arr_2d -> Print 2D Array
+39. lcs_func -> Longest Common Subsequence Length Function
+40. lcs -> Longest Common Subsequence Length Between two strings
