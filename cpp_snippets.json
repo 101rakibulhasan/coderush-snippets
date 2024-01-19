@@ -8,7 +8,7 @@
 		  "using ll = long long;",
 		  "int main()",
 		  "{",
-		  "    $1",
+		  "    ${0:let the game begin}",
 		  "    return 0;",
 		  "}"
 		],
@@ -34,7 +34,7 @@
 		  "    ios::sync_with_stdio(false);",
 		  "    cout.tie(nullptr);",
 		  "",
-		  "    $1",
+		  "    ${0:let the game begin}",
 		  "",
 		  "    return 0;",
 		  "}"
@@ -47,8 +47,7 @@
 		  "ll tc; cin >> tc;",
 		  "while(tc--)",
 		  "{",
-		  "    $1",
-		  "    cout << endl;",
+		  "    ${0:let the game begin}",
 		  "}"
 		],
 		"description": "While-TestCase"
@@ -60,8 +59,7 @@
 		  "for(ll tc = 1; tc <=n; tc++)",
 		  "{",
 		  "    // printf(\"Case %d:\", tc);",
-		  "    $1",
-		  "    cout << endl;",
+		  "    ${0:let the game begin}",
 		  "}"
 		],
 		"description": "For-TestCase"
@@ -72,8 +70,7 @@
 		  "ll a,b;",
 		  "while (scanf(\"%lld %lld\", &a, &b), (a||b))",
 		  "{",
-		  "    $1;",
-		  "    cout << endl;",
+		  "    ${0:let the game begin};",
 		  "}"
 		],
 		"description": "While-TestCase with Special Value"
@@ -84,11 +81,34 @@
 		  "ll a,b;",
 		  "while (scanf(\"%lld %lld\", &a, &b) != EOF)",
 		  "{",
-		  "    $1;",
-		  "    cout << endl;",
+		  "    ${0:let the game begin};",
 		  "}"
 		],
 		"description": "While-TestCase with EOF"
+	  },
+	  "Print Vector": {
+		"prefix": "prnt_vec",
+		"body": [
+		  "for(ll unsigned i = 0;i < ${1:vec.size()}; i++)",
+		  "{",
+		  "    cout << vec[i] << \" \";",
+		  "}",
+		  "cout << endl;"
+		],
+		"description": "Print Vector"
+	  },
+	  "Initializes vector with Input": {
+		"prefix": "ivec",
+		"body": [
+		  "ll ${1:n}; cin >> ${1:n};",
+		  "vector<ll> ${2:vec}(${1:n});",
+		  "for(ll i =0; i < ${1:n}; i++)",
+		  "{",
+		  "    ll temp_vec_v; cin >> temp_vec_v;",
+		  "    ${2:vec}.push_back(temp_vec_v);",
+		  "}"
+		],
+		"description": "Initializes vector with Input"
 	  },
 	  "Initialize Vector with Size": {
 		"prefix": "vec_n",
@@ -100,7 +120,7 @@
 	"Initialize Vector with Values": {
 		"prefix": "vec",
 		"body": [
-		  "vector<${1:ll}> ${2:vec} = {$3};"
+		  "vector<${1:ll}> ${2:vec};"
 		],
 		"description": "Initialize Vector with Values"
 	  },
@@ -114,19 +134,19 @@
 	"Print COUT": {
 		"prefix": "print",
 		"body": [
-		  "cout << $1 << endl;"
+		  "cout << $0 << endl;"
 		],
 		"description": "Print COUT"
 	  },
 	"Get CIN": {
 		"prefix": "scan",
 		"body": [
-		  "cin >> $1 ;"
+		  "cin >> $0 ;"
 		],
 		"description": "Get CIN"
 	  },
 	"Initialize Function For Printing 1D Array": {
-		"prefix": "prnt_arr_func",
+		"prefix": "prnt_Farr",
 		"body": [
 		  "void printArray(ll arr[], ll n){",
 		  "    for(ll i=0; i < n; ++i)",
@@ -142,13 +162,13 @@
 	"Print Array": {
 		"prefix": "prnt_arr",
 		"body": [
-		  "// initialize printArr function first using prnt_arr_func",
+		  "// initialize printArr function first using prnt_Farr",
 		  "printArray(${1:arr[]}, ${2:n});"
 		],
 		"description": "Print Array"
 	  },
 	"Initialize Array[size] With Input": {
-		"prefix": "arr",
+		"prefix": "iarr",
 		"body": [
 		  "ll ${1:arr_length}; cin >> ${1:arr_length};",
 		  "ll ${2:arr}[${1:arr_length}];",
@@ -157,7 +177,7 @@
 		"description": "Initialize Array[size] With Input"
 	  },
 	  "(vec,ll) Returns Index using Binary Search Function": {
-		"prefix": "bs_func",
+		"prefix": "Fbs",
 		"body": [
 		  "ll binary_search(vector<ll> ar, ll x)",
 		  "{",
@@ -186,13 +206,13 @@
 	  "(vec,ll) Returns Index using Binary Search": {
 		"prefix": "bs",
 		"body": [
-		  "// requires bs_func",
-		  "ll bs_ind =  binary_search(${1:vec},${2:number});"
+		  "// requires Fbs",
+		  "ll bs_ind =  binary_search(${2:vec},${3:number});"
 		],
 		"description": "Returns Index using Binary Search"
 	  },
 	  "(ll) Returns 1 or 0 if Prime or Not": {
-		"prefix": "prime_func",
+		"prefix": "Fprime",
 		"body": [
 		  "ll isPrimeNumber(ll x)",
 		  "{",
@@ -212,13 +232,13 @@
 	  "Initialize Prime Checker Variable": {
 		"prefix": "prime",
 		"body": [
-		  "// requires prime_func",
+		  "// requires Fprime",
 		  "ll ispn = isPrimeNumber(${1:number});"
 		],
 		"description": "Initialize Prime Checker Variable"
 	  },
 	  "Generate Prime Numbers Till N": {
-		"prefix": "gen_prime_func",
+		"prefix": "gen_Fprime",
 		"body": [
 		  "vector<ll> sieve_of_eratosthenes(ll n)",
 		  "{",
@@ -253,25 +273,13 @@
 	  "(vector) Initialize Prime Numbers Generator": {
 		"prefix": "gen_prime",
 		"body": [
-		  "// requires gen_prime",
+		  "// requires gen_Fprime",
 		  "vector<ll> vec = sieve_of_eratosthenes(${1:number});"
 		],
 		"description": "(vector) Initialize Prime Numbers Generator"
 	  },
-
-	  "Print Vector": {
-		"prefix": "prnt_vec",
-		"body": [
-		  "for(ll unsigned i = 0;i < ${1:vec.size()}; i++)",
-		  "{",
-		  "    cout << vec[i] << \" \";",
-		  "}",
-		  "cout << endl;"
-		],
-		"description": "Print Vector"
-	  },
 	  "DFS Function": {
-		"prefix": "dfs_func",
+		"prefix": "Fdfs",
 		"body": [
 		  "vector<ll> nodeswithedges[N];",
 		  "vector<ll> dfs_nodes;",
@@ -297,7 +305,7 @@
 	  "Initialize DFS": {
 		"prefix": "dfs",
 		"body": [
-		  "// requires dfs_func",
+		  "// requires Fdfs",
 		  "int totalNodes, rootNode; cin >> totalNodes >> rootNode;",
 		  "int l = totalNodes;",
 		  "while(l--)",
@@ -312,7 +320,7 @@
 		"description": "Initialize DFS"
 	  },
 	  "BFS Function (bfs_nodes)": {
-		"prefix": "bfs_func",
+		"prefix": "Fbfs",
 		"body": [
 		  "int visited[N];",
 		  "int level[N];",
@@ -361,7 +369,7 @@
 		"description": "(root,edge) BFS Initialize (bfs_nodes)"
 	  },
 	  "GCD Function": {
-		"prefix": "gcd_func",
+		"prefix": "Fgcd",
 		"body": [
 		  "ll gcd(ll a, ll b)",
 		  "{",
@@ -374,13 +382,13 @@
 	  "(ll) Returns GCD": {
 		"prefix": "gcd",
 		"body": [
-			"// requires gcd_func",
+			"// requires Fgcd",
 		  "gcd(${1:a},${2:b})"
 		],
 		"description": "(ll) returns GCD"
 	  },
 	  "(ll) LCM Function": {
-		"prefix": "lcm_func",
+		"prefix": "Flcm",
 		"body": [
 		  "ll lcm(int a, int b)",
 		  "{",
@@ -392,13 +400,13 @@
 	  "(ll) Returns the LCM Number": {
 		"prefix": "lcm",
 		"body": [
-		  "// requires lcm_func",
+		  "// requires Flcm",
 		  "lcm(${1:a},${2:b})"
 		],
 		"description": "(ll) Returns the LCM Number"
 	  },
 	  "(vector) Generates Prime Factors": {
-		"prefix": "gen_prime_factors_func",
+		"prefix": "gen_Fprimefactors",
 		"body": [
 		  "vector<ll> prime_factors(ll n)",
 		  "{",
@@ -420,15 +428,15 @@
 		"description": "(vector) Generates Prime Factors"
 	  },
 	  "(vector) Initialize Prime Factors": {
-		"prefix": "gen_prime_factors",
+		"prefix": "gen_primefactors",
 		"body": [
-		  "// requires gen_prime_factors_func",
+		  "// requires gen_Fprimefactors",
 		  "vector<ll> vec = prime_factors(${1:number});"
 		],
 		"description": "(vector) Initialize Prime Factors"
 	  },
 	  "(base^upper) Power Function": {
-		"prefix": "power_func",
+		"prefix": "Fpower",
 		"body": [
 		  "ll power(ll base, ll upper) // , ll mod",
 		  "{",
@@ -453,13 +461,13 @@
 	  "Do Power (base^powervar)": {
 		"prefix": "power",
 		"body": [
-		  "// requires power_func",
+		  "// requires Fpower",
 		  "power(${1:base},${2:powervar})"
 		],
 		"description": "Do Power (base^powervar)"
 	  },
 	  "(string) Convert Number to String Function": {
-		"prefix": "conv_numtostr_func",
+		"prefix": "conv_Fnumtostr",
 		"body": [
 		  "string numtostr(ll num)",
 		  "{",
@@ -469,7 +477,7 @@
 		"description": "(string) Convert Number to String"
 	  },
 	  "(ll) Convert String to Number Function": {
-		"prefix": "conv_strtonum_func",
+		"prefix": "conv_Fstrtonum",
 		"body": [
 		  "ll strtonum(string s)",
 		  "{",
@@ -481,7 +489,7 @@
 	  "(ll) Convert String to Number": {
 		"prefix": "conv_strtonum",
 		"body": [
-			"// requires conv_strtonum_func",
+			"// requires conv_Fstrtonum",
 		  "ll ${1:x} = strtonum(${2:str});"
 		],
 		"description": "(ll) Convert String to Number"
@@ -489,7 +497,7 @@
 	  "(string) Convert Number to String": {
 		"prefix": "conv_numtostr",
 		"body": [
-		  "// requires conv_numtostr_func",
+		  "// requires conv_Fnumtostr",
 		  "string ${1:x} = numtostr(${2:number});"
 		],
 		"description": "(string) Convert Number to String Function"
@@ -524,7 +532,7 @@
 		"description": "Print 2D Array"
 	  },
 	  "Longest Common Subsequence Length Function": {
-		"prefix": "lcs_func",
+		"prefix": "Flcs",
 		"body": [
 		  "ll lcs(string s1, string s2)",
 		  "{",
@@ -557,7 +565,7 @@
 	  "Longest Common Subsequence Length Between two strings": {
 		"prefix": "lcs",
 		"body": [
-		  "// requires lcs_func",
+		  "// requires Flcs",
 		  "lcs(${1:s1}, ${2:s2})"
 		],
 		"description": "Longest Common Subsequence Length Between two strings"
