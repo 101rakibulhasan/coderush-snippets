@@ -6,7 +6,7 @@ Github: https://github.com/101rakibulhasan/coderush-snippets
 
 Marketplace: https://marketplace.visualstudio.com/items?itemName=101rakibulhasan.coderush
 
-# Genral Idea
+# GENERAL IDEA
 
 1. snippets are categorized into 3 parts-
     1. general = has no snippet type brfor keyword. They are just snippets. Example: vec, arr, tw
