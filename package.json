@@ -2,7 +2,7 @@
 	"name": "coderush",
 	"displayName": "CodeRush Snippets",
 	"description": "Speedrun Competitive Programming Contests with CodeRush Snippets",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publisher": "101rakibulhasan",
 	"icon": "images/icon.png",
 	"license": "./LICENSE",
