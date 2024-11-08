@@ -85,3 +85,15 @@ Marketplace: https://marketplace.visualstudio.com/items?itemName=101rakibulhasan
 28. Flcs -> Longest Common Subsequence Length Function
 
     lcs  -> Longest Common Subsequence Length Between two strings
+
+29. Fbe -> Binary Exponent Function
+
+    be  -> Initialize Binary Exponent Function
+
+30. Fme -> Modular Exponentiation Function
+
+    me  -> Initilaize Modular Exponentiation Function
+
+## Data Structures
+31. olist -> Initialize Ordered List
+
